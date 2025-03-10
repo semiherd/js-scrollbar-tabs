@@ -1,0 +1,101 @@
+:root{
+    --page-bg: #d3ddde;
+    --primary: #262c56;
+    --secondary: #32396b;
+    --white: #fff;
+    --on-hover: #fff2;
+    --bg-selected-tab: #e8e4e3;
+    --color-selected-tab: #111;
+    --scroll-icon-bg: #444141;
+    --scroll-arrow-bg: #CD5C5C;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+body{
+    min-height: 100vh;
+    background-color: var(--page-bg);
+    display: grid;
+    place-content: center;
+}
+.scrollbar{
+    position: relative;
+    width: 80vw;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.scrollbar .tabs{
+    min-width: 99%;
+    list-style: none;
+    display: flex;
+    gap: .8rem;
+    overflow-x: auto;
+    scroll-behavior:smooth;
+}
+.tabs .tab{
+    white-space: nowrap;
+    background-color: var(--secondary);
+    padding: .5rem 2rem;
+    border-radius: 15px;
+    transition: 0.4s ease-in-out;
+}
+.tabs .tab:hover{
+    cursor: pointer;
+    background-color: var(--on-hover);
+}
+.tabs .tab.active{
+    background-color: var(--bg-selected-tab);
+    color: var(--secondary);
+}
+/* scroll-invisible on Chrome */
+.scrollbar .tabs::-webkit-scrollbar{
+    display: none;
+}
+
+/* scroll-invisible on IE, Edge and Firefox */
+.scrollbar .tabs{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.scrollbar .icon{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%); 
+    height: 100%;
+    width: 6%;  
+}
+.scrollbar .icon:first-child{
+    left: 0;
+    background: linear-gradient(to right,var(--scroll-icon-bg) 25%,transparent);
+}
+.scrollbar .icon:last-child{
+    right: 0;
+    justify-content: flex-end;
+    background: linear-gradient(to left,var(--scroll-icon-bg) 25%,transparent);
+}
+.scrollbar .icon.hide{
+    display: none;
+}
+.icon .left-arrow, .icon .right-arrow{
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 200;
+    line-height: 1.2rem;
+    font-size: 1.5rem;
+}
+.icon span:hover{
+    background-color: var(--scroll-arrow-bg);
+    cursor: pointer;
+}
