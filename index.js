@@ -38,7 +38,7 @@ tab.addEventListener('wheel', (e) => {
 });
 arrowIcons.forEach( icon => {
     icon.addEventListener('click', () =>{
-        tab.style.scrollBehavior= 'smooth';
+        tab.style= '';
         tab.scrollLeft+= icon.classList.contains('right-arrow') 
             ? 200
             : icon.classList.contains('left-arrow')
